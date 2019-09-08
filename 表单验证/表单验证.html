@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5客户端验证</title>
+    <link rel="stylesheet" href="styel.css">
+    <link rel="stylesheet" href="demo.css">
+
+</head>
+<script>
+    function S(ba,hZ) {
+        try{
+            return(hz&&(hz.document||hz)||document).getElementById(ba);
+        }
+        catch cg {
+            return null;
+        }
+    }
+    var show=function (id,isVisible) {
+        var s1=isVisible?"":"none";
+        S(id).style.display=s1
+    }
+    var checkAlias=function () {
+        var_oForm=S("contactform"),_oReg=/^[0-9a-zA-Z\.\-_]{4,32}$/,_oRegErr=/(^[\.\-])|([\.\-]$)/,
+            _oRegErr2=/[\.\-_][\.\-]/,_bInvalid=false,_sMsg="";
+        _oForm.username.value=_oForm.username.value.trim();
+        if(
+            _oForm.username.value.length<4||_oForm.username.value.length>32){
+            _bInvalid=true;
+            _sMsg="账号长度不符合要求（4,32）";
+        }
+        else if(!_oReg.test(|_oForm.username.value)){
+            _bInvalid=true;
+            _sMsg="账号格式错误（含非法字符）";
+        }
+        if(_bInvalid){
+            S("msg_username_reason").innerHTML=_sMsg;
+            show("msg_username_err",true);
+            show("msg_username_ok",false);
+            return false;
+        }
+        else{
+            show("msg_username_err",false);
+            show("msg_username_ok",true);
+        }
+        return true;
+    };
+</script>
+<body>
+    <div class="container">
+        <div class="topbanner">
+            <a href="#website" target="_blank">Home</a>
+            <span class="right">
+                 <a href="#website2  ">
+                     <strong>返回</strong>
+                 </a> 
+            </span>
+            <div class="clr"></div>
+        </div>
+        
+        
+        <header>
+            <h1>X公司用户注册</h1>
+        </header>
+        
+        <div class="form">
+            <form id="contactfrom" name="contactform" onsubmit="return checkAlias();">
+                <p class="contact">
+                    <label for="name">姓名</label>
+                </p>
+                <input type="text" id="name" name="name" placeholder="全名" tabindex="1" required="">
+
+                <p class="contact"><label for="e-mail">E-mail</label></p>
+                <input type="text" id="e-mail" placeholder="example@domain.com" required="" >
+
+                <p class="contact"><label for="usernammel">创建用户名</label></p>
+                <input type="text" id="username" placeholder="username" required="" tabindex="2" onfocus="" onblur="checkAlias();" maxlength="32">
+
+                <span class="form__hint">只能以字母和数字以及‘_’构成</span><br>
+                <span id="msg_username_err" style="padding: 0 5px;display:none;"><img class="icon_disable_mimg_pad" src="" alt=""><span id="msg_username_reason" class="txt_red f_size">请填写管理员账号</span></span>
+                <span id="msg_username_ok" style="display: none"><img src="" alt="" class="icon_finish_m"></span>
+
+
+                <p class="contact"><label for="password">设置密码</label></p>
+                <input type="password" id="password" name="password" required="">
+                <p class="contact"><label for="repassword">密码确认</label></p>
+                <input type="password" id="repassword" name="repassword" required="">
+
+
+                <select name="" id="" class="select-style gender" name="gender">
+                    <option value="select">性别是：</option>
+                    <option value="m">男</option>
+                    <option value="f">女</option>
+                    <option value="others">其他</option>
+                </select><br><br>
+
+                <p class="contact"><label for="phone"> 手机号码</label></p>
+                <input type="text" id="phone" name="phone" placeholder="phone number"pattern="\d{11}"><br>
+                <input type="submit" class="button" id="submit" tabindex="5" value="注册">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

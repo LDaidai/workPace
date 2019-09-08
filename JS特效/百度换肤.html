@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            vertical-align: top;
+        }
+
+        body {
+            background: url("img/1.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        #box {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        #box ul {
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            cursor: pointer;
+
+        }
+
+        #box ul li img {
+            width: 180px;
+            height: 120px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+        <li><img src="img/5.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+        var box = document.getElementById("box");//缩小li标签的范围
+        var allLis = document.getElementsByTagName("li");
+
+        //2.遍历监听
+        for (var i = 0; i < allLis.length; i++) {
+            var sLi = allLis[i];
+            sLi.index = i + 1;
+            //2.2绑定事件
+            sLi.onclick = function () {
+                document.body.style.background = 'url("img/' + this.index + '.jpg") no-repeat';
+            }
+        }
+    }
+</script>
+</body>
+</html>

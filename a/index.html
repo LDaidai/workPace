@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        body {
+            width: 1000px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        #hide {
+            display: block;
+            padding-top: 15px;
+        }
+
+        .header {
+            width: 1000px;
+
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .header .he {
+            width: 1000px;
+            height: 30px;
+            line-height: 30px;
+            background: cornflowerblue;
+            font-size: 14px;
+        }
+
+        .o {
+            display: inline-block;
+            width: 80px;
+            text-align: center;
+        }
+
+        .header .textarea {
+            width: 980px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .content .xl {
+            width: 1000px;
+            height: 20px;
+            text-align: center;
+            background: cadetblue;
+        }
+
+        .content .nav {
+            width: 1000px;
+            height: 30px;
+            line-height: 30px;
+            background: cornflowerblue;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .content textarea {
+            width: 980px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">
+    <div class="he">
+        <span class="o o0">编辑任务</span>
+        <span class="o o1">采集任务</span>
+    </div>
+    <div class="textarea" id="top_box">
+        <iframe  id="top_box" style="width: 1000px; height: 500px" src="http://www.runoob.com"></iframe>
+    </div>
+</div>
+<div class="content">
+    <div class="xl">
+        <input type="button" id="show" value="<>" style="width: 1000px"/>
+    </div>
+    <div class="nav">
+        <span class="o o3">采集</span>
+    </div>
+    <div id="hide" style="height: 300px"></div>
+</div>
+<script type="text/javascript">
+
+    window.onload = function () {
+        var x=1;
+        document.getElementById("show").onclick = function () {
+           if(x%2==1){
+               document.getElementById("top_box").style.height="700px";
+               document.getElementById("hide").style.display = "none";
+           }else {
+               document.getElementById("top_box").style.height="500px";
+               document.getElementById("hide").style.display = "block";
+           }
+            x++;
+        }
+
+    }
+
+</script>
+</body>
+</html>

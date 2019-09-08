@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+
+        body {
+            background-color: #cccccc;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #top {
+            width: 43px;
+            height: 43px;
+            background: url("img/u=3871522243,1144465595&fm=26&gp=0.jpg") no-repeat;
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            position: fixed;
+            right: 10px;
+            bottom: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<span id="top"></span>
+
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<p>789564123213</p>
+<script src="js/myFunc.js"></script>
+<script>
+    window.onload = function () {
+        // 定义变量
+        var scroll_top = 0, begin = 0, end = 0, timer = null;
+        //监听窗口滚动
+        window.onscroll = function () {
+            //获取滚动高度
+            scroll_top = scroll().top;
+            //显示和隐藏
+            scroll_top > 0 ? show($("top")) : hide($("top"));
+            begin = scroll_top;
+        };
+        //监听点击
+        $("top").onclick = function () {
+            //2.1清除定时器
+            clearInterval(timer);
+
+            //开启缓动动画
+            timer = setInterval(function () {
+                begin = begin + (end - begin) / 20;                                         //(除以的数相当于回到顶部的速度)
+                window.scrollTo(0, begin);
+
+                //清除定时器
+                if (parseInt(begin) === end) {
+                    clearInterval(timer);
+                }
+            }, 20)
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 100px;
+
+        }
+
+        #box1 {
+            width: 150px;
+            height: 150px;
+            background-color: darkmagenta;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="box1"></div>
+<button id="btn">向右走</button>
+<button id="btn1">向左走</button>
+<script src="js/myFunc.js"></script>
+<script>
+    //动画的基本原理是 盒子的offsetLeft+步长
+
+    window.onload = function () {
+        $("btn").onmousedown = function () {
+            constant($("box"), 800, 20);
+            constant($("box1"), 600, -20);
+        };
+        $("btn1").onmousedown = function () {
+            constant($("box"), -200, 20);
+            constant($("box1"), 500, 5);
+        }
+    };
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #e_conder{
+            width: 50px;
+            height: 50px;
+            background: url("img/icon-close.png") no-repeat;
+            position: fixed;
+            top: 40%;
+            left: 0;
+        }
+        #e_app{
+            left: 50px;
+            top:-120px ;
+            position: absolute;
+            display: none;
+           cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="e_conder">
+        <div id="e_app">
+            <img src="img/B612Kaji_20181026_224956_367.jpg" width="230px" height="300px" alt="呆呆啊">
+        </div>
+    </div>
+
+    <script>
+        // window.onload=function () {
+        //     //1.获取相应标签
+        //     var e_coder=document.getElementById("e_coder");
+        //     var e_app=document.getElementById("e_app");
+        //
+        //
+        //     //2.监听鼠标进入
+        //     e_coder.onmouseover=function () {
+        //         //2.1改变背景图片
+        //             this.style.background='url("img/B612Kaji_20181026_224956_367.jpg" width="230px" height="300px" ) no-repeat';
+        //         //2.2显示图片
+        //         e_app.style.background="block";
+        //     };
+        //     //3.监听鼠标离开
+        //     e_coder.onmouseout=function () {
+        //         //3.1改变背景图片
+        //         this.style.background=' url("img/icon-close.png") no-repeat';
+        //         //3.2隐藏图片
+        //         e_app.style.display="none";
+        //     }
+        // }
+
+    </script>
+    <script>
+    $(function () {
+        $("#e_conder").mouseover(function () {
+            $("#e_app").css("display", "block");
+        })
+        $("#e_conder").mouseout(function () {
+            $("#e_app").css("display", "none");
+        })
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+        img{
+            vertical-align: top;
+            width: 100%;
+        }
+        section{
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .nav{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<head id="head">
+    <img src="img/E.png" alt="">
+</head>
+<nav id="nav">
+    <img src="img/3E.png" alt="">
+</nav>
+<section>
+    <img src="img/3E1.png" alt="">
+    <img src="img/TS.png" alt="">
+</section>
+<script src="js/myFunc.js"></script>
+<script>
+    window.onload=function () {
+        //求出offseiHeight
+        var nav_top_height=$("nav").offsetTop;
+        //2.监听窗口滚动
+        window.onscroll=function () {
+            var scroll_top_height=scroll().top;
+            console.log(scroll_top_height);
+
+            //判断
+            if(scroll_top_height>=nav_top_height){
+                $("nav").className="nav";
+            }else{
+                $("nav").className="";
+            }
+        }
+    };
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

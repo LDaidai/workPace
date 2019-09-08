@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        #box {
+            width: 1600px;
+            height: 1600px;
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+<!--<div id="box">-->
+<!--<p id="word">哈哈哈</p>-->
+<!--<button id="btn">点我</button>-->
+<!--</div>-->
+<div class="box">
+    <p id="word">哈哈哈</p>
+    <button id="btn">点我</button>
+    <img>
+ <!--<img src="img/下载.jpg" alt="图片">-->
+</div>
+<script type="text/html">
+    window.onload=function () {
+    //CRUD(增删改查)
+
+    var box=document.getElementById("box");
+    //1.创建节点
+    var img=document.createElement("img");
+    img.src="img/B612Kaji_20181028_191728_102.jpg";
+    // box.appendChild(img);
+    var btn=document.getElementsByTagName("button")[0];
+    box.insertBefore(img,btn);
+
+
+    //删除节点
+    //  var word=document.getElementById("word" );
+    // // word.parentNode.removeChild(word);//自杀方式
+    //  word.remove();
+    $("#btn").click(function () {
+    $("#word").remove();
+    })
+
+    }
+</script>
+<script type="text/html">
+    window.onload=function () {
+    //新节点=要复制的节点cloneNode（参数）；参数可选复制节点
+    var box=document.getElementsByClassName("box")[0];
+    var newTag=box.cloneNode(true);
+    // console.log(newTag);
+    document.body.appendChild(newTag)
+    }
+</script>
+<script>
+    window.onload = function () {
+        // 节点属性
+        var img=document.getElementsByTagName("img")[0];
+        // //1.获取。getAttribute(名称）
+        // console.log(img.getAttribute("src"));
+        // console.log(img.getAttribute("alt"));
+
+        //2.设置setAttribute(名称，值)
+        img.setAttribute("src","img/下载.jpg");
+        img.setAttribute("alt","图片");
+
+
+        //删除 removeAttribute（名称）
+        img.removeAttribute("src");s
+    }
+</script>
+</body>
+</html>

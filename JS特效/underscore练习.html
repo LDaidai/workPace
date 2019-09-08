@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/underscore-min.js"></script>
+
+<script>
+
+
+    var dataArr=["张三",19,"男",1212,23];
+
+    _.each(dataArr,function(item,index,arr){
+        console.log(item,index,arr);
+    });
+    //可以用于去重  删除
+    console.log(_.without(dataArr, "张三"));
+</script>
+</body>
+</html>

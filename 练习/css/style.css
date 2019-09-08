@@ -1,0 +1,91 @@
+*{margin: 0;padding: 0; list-style: none; text-decoration: none;}
+body{
+
+    font-family:"Microsoft YaHei";
+    font-size: 16px;
+}
+
+#border_box{
+   margin: 0 auto;
+    padding-top: 40px;
+    width: 1000px;
+
+
+}
+
+#left_box{
+    width: 160px;
+    height: 100%;
+    float: left;
+}
+.left_top{
+    height: 80px;
+    background: #215ffb;
+}
+.left_top img{
+    float: right;
+}
+.left_nav{
+    height: 60px;
+    border-bottom: 1px solid darkgray;
+}
+
+.left_nav li{
+
+    float: left;
+    height: 44px;
+}
+.left_nav .img_1{
+    margin-left: 18px;
+    margin-right: 18px;
+}
+.left_concent li{
+    vertical-align: center;
+    height: 50px;
+    line-height: 44px;
+
+}
+.left_concent li span {
+    color: darkgray;
+    vertical-align: middle;
+}
+#right_box{
+    float:left;
+    margin-left: 30px;
+}
+.right_nav ul{
+    width: 700px;
+    height: 80px;
+
+}
+.right_nav li{
+    width: 100px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    float: left;
+
+}
+.right_nav li a{
+    color: darkgray;
+    width: 100px;
+    height: 80px;
+    display: block;
+}
+.right_nav li a:hover{
+    border-bottom: 1px solid #215ffb;
+}
+.right_nav li a:hover{ color: #2088f2;}
+
+.right_centent{
+
+    border-bottom: 1px solid darkgray;
+    display: block;
+}
+.right_centent span a{color: darkgray;}
+.right_centent_box{border: 1px solid darkgray;height: 400px;width: 700px;}
+.right_centent_box .right_centent_insetbox{border: 1px solid darkgray; float: left;height: 100%}
+.right_centent_insetbox span{color: darkgray;font-size: 12px;}
+.right_centent_insetbox .TXT{background: rgba(152,160,181,0.3)}
+
+

@@ -1,0 +1,9 @@
+div{
+   overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+img{
+    margin-left: -200px;
+
+}

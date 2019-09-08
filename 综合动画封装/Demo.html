@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 100px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn">向右走</button>
+<script src="js/myFunc.js"></script>
+<script>
+    //动画的基本原理是 盒子的offsetLeft+步长
+    window.onload = function () {
+        var timer = null, target = 600;
+        $("btn").onclick = function () {
+            //清除定时器
+            clearInterval(timer);
+
+            //2设置
+            timer = setInterval(function () {
+                box.style.left = box.offsetLeft + 10 + "px";
+                if (box.offsetLeft>=target){
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+
+
+    }
+</script>
+</body>
+</html>

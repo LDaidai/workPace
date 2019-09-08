@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+
+        html, body, ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #ps {
+            position: relative;
+        }
+
+        #ps li img {
+            width: 550px;
+            height: 360px;
+            box-shadow: 0 0 10px #000000;
+
+            position: absolute;
+        }
+
+        #ps li.current {
+            left: 50% !important;
+            top: 50% !important;
+            transform: rotate(0deg) translate(-50%, -50%) scale(1.5, 1.5) !important;
+            z-index: 99;
+
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+<ul id="ps"></ul>
+<script src="js/underscore-min.js"></script>
+<script>
+    window.onload = function () {
+        //获取需要标签
+        var ps = document.getElementById("ps");
+
+        //2动态创建li标签
+        for (var i = 0; i < 10; i++) {
+            //2.1创建li标签
+            var li = document.createElement("li");
+            ps.appendChild(li);
+
+            //创建img标签
+            var img = document.createElement("img");
+            img.src = "img/" + (i + 1) + ".jpg";
+            li.appendChild(img);
+        }
+
+        //3.获取所有的li标签
+        var allLis = ps.children;
+        //4.求出格式屏幕的宽度和高度
+        var screenW = document.documentElement.clientWidth - 550;
+        var screenH = document.documentElement.clientHeight - 360;
+
+        //5.遍历
+        for (var j = 0; j < allLis.length; j++) {
+            //5.1取出单个li标签
+            var li = allLis[j];
+
+
+            //5.2随机分布
+            li.style.left = _.random(0, screenW) + 'px';
+            li.style.top = _.random(0, screenH) + 'px';
+
+
+            //5.3随机角度
+            li.style.transform = 'rotate(' + _.random(0, 360) + 'deg)';
+
+            //监听点击事件
+            li.onclick = function () {
+                for (var k = 0; k < allLis.length; k++) {
+                    allLis[k].className = '';
+                    this.className = 'current';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

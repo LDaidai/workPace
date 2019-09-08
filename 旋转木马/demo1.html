@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+
+        img {
+            vertical-align: top;
+            width: 300px;
+            height: 200px;
+        }
+
+        body {
+
+        }
+
+        #slider {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+
+            position: relative;
+        }
+
+        #slider li {
+            position: absolute;
+            left: 200px;
+            top: 0;
+        }
+
+
+        .slider_ctl_prev, .slider_ctl_next {
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 50%;
+            margin-top: -116px;
+            z-index: 99;
+
+
+        }
+
+        #slider_ctl {
+            opacity: 0;
+        }
+
+        .slider_ctl_prev {
+            background: url("image/7.png") no-repeat;
+            left: 0;
+
+        }
+
+        .slider_ctl_next {
+            background: url("image/8.png") no-repeat;
+            right: -180px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <ul id="slider_main">
+        <li><img src="image/0.jpg" alt=""></li>
+        <li><img src="image/1.jpg" alt=""></li>
+        <li><img src="image/2.jpg" alt=""></li>
+        <li><img src="image/4.jpg" alt=""></li>
+        <li><img src="image/4.jpg" alt=""></li>
+    </ul>
+    <div id="slider_ctl">
+        <span class="slider_ctl_prev"></span>
+
+        <span class="slider_ctl_next"></span>
+    </div>
+</div>
+<script src="js/myFunc.js"></script>
+<script>
+    window.onload = function () {
+        //获取需要标签
+        var slider = $("slider");
+        var slider_main = $("slider_main");
+        var allLis = slider_main.children;
+
+        var slider_ctl = $("slider_ctl");
+
+
+        //2 设置指示器的显示和隐藏myFunc.js
+        slider.onmouseover = function () {
+            buffer(slider_ctl, {"opacity": 1});
+        };
+        slider.onmouseout = function () {
+            buffer(slider_ctl, {"opacity": 0});
+        };
+
+        //定位
+
+        var json = [
+            {
+                //1.
+                width: 200,
+                top: 20,
+                left: -100,
+                opacity: 0.2,
+                zIndex: 2
+            },
+            {
+                //2.
+                width: 400,
+                top: 70,
+                left: -50,
+                opacity: 0.8,
+                zIndex: 3
+            }, {
+                //3.
+                width: 600,
+                top: 100,
+                left: 170,
+                opacity: 1,
+                zIndex: 4
+            },
+            {
+                //4.
+                width: 400,
+                top: 70,
+                left: 400,
+                opacity: 0.8,
+                zIndex: 3
+            },
+            {
+                //5.
+                width: 200,
+                top: 20,
+                left: 450,
+                opacity: 0.2,
+                zIndex: 2
+            }
+        ];
+        for (var i = 0; i < json.length; i++) {
+            buffer(allLis[i], json[i]);
+        }
+        //监听点击
+        for (var j = 0; j < slider_ctl.children.length; j++) {
+            var item = slider_ctl.children[j];
+            item.onmousedown = function () {
+                if (this.className === "slider_ctl_prev") {//左边
+                   json.push(json.shift());
+                } else {
+                    //右边
+                    json.unshift(json.pop());
+                }
+                //重新布局
+                for (var i = 0; i < json.length; i++) {
+                    buffer(allLis[i], json[i]);
+                }
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

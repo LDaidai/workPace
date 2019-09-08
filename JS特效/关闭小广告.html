@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        #icon{
+            float: left;
+            z-index: -1;
+        }
+    #close{
+        position: absolute;
+        left: 450px;
+        top: 11px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img id="icon" src="img/下载.jpg" alt="">
+    <img id="close" src="img/icon-close.png" alt="" width="50px" height="50pxs">
+</div>
+<script>
+    // window.onload=function () {
+    //     //1.获取需要的标签
+    //     var  box=document.getElementById("box");
+    //     var  close=document.getElementById("close");
+    //
+    //
+    //     //2.给事件源绑定事件
+    //
+    //     close.onclick=function () {
+    //         box.style.display="none";
+    //     }
+    // }
+    $('#close').click(function () {
+        $('#box').css("display","none");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "https://study.163.com/";
+    var str1 = "http://localhost:63342/%E7%BD%91%E9%A1%B5%E7%BB%83%E4%B9%A0/JS%E7%89%B9%E6%95%88/%E7%BC%96%E7%A0%81%E5%92%8C%E8%A7%A3%E7%A0%81.html?_ijt=nuar6l2rh73fnc044efj2pfa03"
+    //1.编码
+    var encodestr = encodeURIComponent(str);
+    console.log(encodestr);//https%3A%2F%2Fstudy.163.com%2F
+
+    //2解码
+    var decodestr=decodeURIComponent(str1);
+    console.log(decodestr);
+
+
+
+    var PI=3.1415926;
+    console.log(PI.toFixed(2));//四舍五入保留两位小数
+</script>
+</body>
+</html>

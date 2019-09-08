@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+    <img id="logo" src="img/B612Kaji_20181026_224956_367.jpg" alt="">
+
+
+<script>
+    // window.onload=function () {
+    //
+    //
+    // //1.获取需要的标签
+    // var logo = document.querySelector("#logo");
+    //
+    // //2.绑定事件
+    // logo.onmouseover=function(){
+    //     this.src="img/B612Kaji_20181028_191728_102.jpg";
+    // };
+    // logo.onmouseout=function(){
+    //     this.src="img/B612Kaji_20181026_224956_367.jpg";
+    // }
+    //
+    // }
+    $("#logo").mouseover(
+        function(){
+            $("#logo").attr("src","img/B612Kaji_20181028_191728_102.jpg");
+        }
+    );
+    $("#logo").mouseout(
+        function(){
+            $("#logo").attr("src","img/B612Kaji_20181026_224956_367.jpg");
+        }
+    );
+</script>
+</body>
+</html>

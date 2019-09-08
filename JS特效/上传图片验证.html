@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label >上传图片的验证：</label>
+<input type="file" id="file">
+<script>
+    /*
+    * jpg,png,gif
+    * */
+    window.onload=function () {
+        //获取标签
+        var file=document.getElementById('file');
+        //2.监听域的变化
+        file.onchange=function () {
+            //2.1获取上传图片的路径
+            var path=this.value;
+
+
+            //2.2截取
+            var suffix=path.substr(path.lastIndexOf('.'));
+
+
+            //2.3同一转成小写
+            var lower_suffix=suffix.toLowerCase();
+
+            //2.4判断
+            if(lower_suffix==='.jpg'|| lower_suffix==='.png'||lower_suffix==='.gif'||lower_suffix==='.jpeg'){
+                alert('上传图片正确');
+            }else {
+                alert('上传图片格式不正确')
+            }
+        }
+    }
+</script>
+</body>
+</html>

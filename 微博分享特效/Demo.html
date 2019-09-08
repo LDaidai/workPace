@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        p {
+            margin: 100px auto;
+            line-height: 40px;
+            width: 300px;
+        }
+
+        #share {
+            width: 26px;
+            height: 26px;
+            background: url("image/weibo.png") ;
+            position: absolute;
+            display: none;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<p id="text">
+    烟一支一支一支地点
+
+    酒一杯一杯一杯地干
+
+
+    亲爱的 可爱的 英俊的 朋友
+
+    垃圾的 没品的 没出息的 朋友
+
+    在坎坷的路骑我二流摩托车
+
+    反直我的人生像是狗屎
+
+    我没钱没妻没子只有一条命
+
+    朋友阿
+
+    一起来赌吧
+
+    烟一支一支一支地点
+
+    酒一杯一杯一杯地干
+
+</p>
+<div id="share"></div>
+<script src="js/myFunc.js"></script>
+<script>
+    window.onload = function () {
+        var selectedText;
+        //监听鼠标的抬起
+        $("text").onmouseup = function (event) {
+            //1.0 兼容
+            var e = event || window.event;
+
+            //1.1获取选中的文字
+
+            if (window.getSelection) {//标准模式  获取选中的文字
+                selectedText = window.getSelection().toString();
+            } else {//IE系列
+                selectedText = document.selection.createRange().text;
+
+            }
+            if (selectedText !== '') {
+                //1.2 显示面板
+
+                $("share").style.display = 'block';
+
+                //改变位置
+                $("share").style.left = e.clientX + 'px';
+                $("share").style.top = e.clientY + 'px';
+
+
+            }
+        };
+
+        //2.0监听文档的点击
+        document.onmousedown = function (event) {
+            //2  兼容
+            var e = event || window.event;
+
+            //2.1获取点击区域的ID
+            var targetId = e.target ? e.target.id : e.srcElement.id;
+
+            //2.2判断
+            if (targetId !== "share") {
+                $("share").style.display = "none";
+            }else {
+                window.location.href=' http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary='+selectedText+'&url=https://www.baidu.com/';
+            }
+            //防止拖动时选中内容  取消选中
+            window.getSelection() ? window.getSelection().removeAllRanges() : document.selection.empty();
+        };
+
+    }
+</script>
+</body>
+</html>

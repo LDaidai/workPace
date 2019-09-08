@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "你好,世界!";
+
+
+    console.log(getStrLength(str));
+
+    function getStrLength(str) {
+        var len = 0, code = 0;
+
+        for (var i = 0; i < str.length; i++) {
+            code = str.charCodeAt(i);
+
+            //判断
+            if (code >= 0 && code <= 127) {
+                len += 1;
+            } else {
+                len += 2;
+            }
+
+        }
+        //返回长度
+        return len;
+    }
+</script>
+</body>
+</html>

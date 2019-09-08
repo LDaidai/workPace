@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 90px;
+            height: 90px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始动画</button>
+<div id="box"></div>
+<script>
+    window.onload = function () {
+        linerrAnimation('btn','box',5,800);
+    };
+
+    function linerrAnimation(btnId,boxId,step,target) {
+        //获取需要标签
+        var btn = document.getElementById(btnId);
+        var box = document.getElementById(boxId);
+
+
+        //定义变量
+        var timer = null, begin = 0;
+        //监听按钮点击
+        btn.onclick = function () {
+
+            //清楚定时器
+            clearInterval(timer);
+
+            //设置定时器
+            timer = setInterval(function () {
+                //相加
+                begin += step;
+
+                //判断
+                if (begin >= target) {
+                    begin = target;
+                    clearInterval(timer);
+                }
+
+                //动起来
+                box.style.marginLeft = begin + 'px';
+            }, 100);
+        };
+
+    }
+</script>
+</body>
+</html>

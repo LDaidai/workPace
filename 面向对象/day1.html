@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Dog(op) {
+        this._init(op);
+    }
+
+    Dog.prototype = {
+//属性
+        //json 传入对象
+        _init: function (option) {
+
+            this.name = option.name;
+            this.age = option.age;
+            this.play = option.play;
+
+        },
+        //方法
+        eat: function (someThing) {
+            console.log(this.name + "吃" + someThing);
+        },
+        run: function (someWhere) {
+            console.log(this.name + "跑" + someWhere);
+        }
+    }
+    //实例化
+    var sDog=new Dog({name:"小米",age:1});
+    // console.log(typeof  sDog);
+    // console.log(sDog.name);
+    // sDog.eat("肉");
+    // sDog.run("草原");
+
+
+    var bigDog=new Dog({name:'大花',age:3,dogFriends:["大大","小小"]});
+    console.log(bigDog);
+    bigDog.eat("肉");
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">3秒后吃饭</button>
+<button id="btn1">停止</button>
+<script>
+    window.onload=function () {
+        var btn=document.getElementById("btn");
+        var btn1=document.getElementById("btn1");
+        var timer=null;
+        btn.onclick=function () {
+            clearTimeout(timer);
+           //一次定时器
+            timer=setInterval(function () {
+                alert("boom")
+            },3000);
+        };
+        btn1.onclick=function () {
+            clearTimeout(timer);
+        }
+    }
+</script>
+</body>
+</html>
